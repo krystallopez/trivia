@@ -6,6 +6,11 @@ const TRIVIA_API = `https://opentdb.com/api.php?amount=1&category=${category}&di
 
 class App extends Component {
 
+  constructor() {
+    super();
+    this.state = {question: null};
+  }
+
 
   render() {
     return (
@@ -17,7 +22,11 @@ class App extends Component {
         </h2>
         <hr />
         <div>
-          {/* Render question here */}
+         {this.state.question && (
+          <Question 
+            question={this.state.question}
+          />
+         )}
         </div>
       </div>
     );
