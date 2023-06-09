@@ -33,13 +33,18 @@ class Question extends React.Component {
         <div>
           {this.answers.map((answer) => (
             <AnswerButton
+              handleGuess={this.handleGuess}
               key={answer}
               answer={answer}
             />
           ))}
         </div>
-
-        {/* Dynamically render correct/incorrect here! */}
+            {this.state.guessed && (
+              <div>
+              {this.state.guessed === this.props.question.correct_answer ? (<p>Correct!</p>) : (<p>Incorrect! The correct answer is {this.props.question.correct_answer}</p>)}
+              </div>
+            )
+            }
       </div>
     );
   }
